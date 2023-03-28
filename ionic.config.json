@@ -1,0 +1,7 @@
+{
+  "name": "NlpFrontAPP",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
