@@ -1,0 +1,40 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-button slot="start" fill="clear" style="color:#FFF" (click)="logout()">
+      <ion-nav-link router-direction="forward" [component]="component">
+        <ion-icon size="large" name="arrow-back-outline"></ion-icon>
+      </ion-nav-link>
+    </ion-button>
+
+    <span style="text-align:right">
+      <ion-title>
+        <ion-icon color="primary" style="font-size: 2rem;" name="share-social"></ion-icon>
+      </ion-title>
+    </span>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content >
+  <ion-tabs >
+
+    <ion-tab-bar slot="top" color="primary" class="ion-elevation-2">
+      <ion-tab-button tab="music">
+        <ion-icon name="musical-note-outline"></ion-icon>
+        <ion-label>Audio</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="video">
+        <ion-icon name="videocam-outline"></ion-icon>
+        <ion-label>Video</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="about">
+        <ion-icon name="accessibility-outline"></ion-icon>
+        <ion-label>About</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>
+

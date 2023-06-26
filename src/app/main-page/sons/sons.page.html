@@ -1,0 +1,110 @@
+
+<ion-content  [fullscreen]="true"  class="ion-padding" color="dark">
+
+  <div id="music-container">
+    <div  style="padding:10px; color:black; position:relative; margin-bottom:20px;">
+      <ion-icon color="danger" name="musical-notes"></ion-icon> <br>
+      <span> AUDIO PLAYER </span>
+    </div>
+
+    <ion-button expand="block" (click)="OpenModal()" >Annoter</ion-button>
+
+      <ion-card color="light">
+        <ion-card-header>
+          <ion-card-title>Note attribuée</ion-card-title>
+          <ion-card-subtitle>
+            <div style="text-align:center">
+              <ng-container *ngIf="note.id === 0">
+                Note: Pas annoter
+              </ng-container>
+
+              <ng-container *ngIf="note.id!== 0">
+                <span style="font-size:20px;">
+                  {{note.emoji}}
+                </span>
+                <span>
+                  {{note.name}}
+                </span>
+              </ng-container>
+            </div>
+          </ion-card-subtitle>
+        </ion-card-header>
+
+        <ion-card-content style="text-align:center">
+          <ng-container *ngIf=" musicList[num_Audio]!==undefined">
+            <ion-badge *ngIf="musicList[num_Audio].numAnnotate!==0"  color="primary" mode="ios">
+              {{musicList[num_Audio].numAnnotate}}
+            </ion-badge>
+
+            <ion-badge *ngIf="musicList[num_Audio].numAnnotate===0" color="primary" mode="ios">
+              {{numAnnotate}}
+            </ion-badge>
+          </ng-container>
+
+        </ion-card-content>
+      </ion-card>
+  </div>
+
+    <ion-modal  [isOpen]="isModalOpen" [backdropDismiss]="false">
+      <ng-template>
+        <ion-content>
+
+          <ion-list>
+
+            <ion-item *ngFor="let emoji of emojiList; index as i;" (click)="setAnnotation(emoji.id)">
+              <ion-avatar slot="start">
+                <span style="font-size:30px">{{emoji.emoji}}</span>
+              </ion-avatar>
+              <ion-label>
+                <h2>{{emoji.name}}</h2>
+              </ion-label>
+            </ion-item>
+          </ion-list>
+
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+</ion-content>
+
+<ion-footer collapse="fade" class="ion-no-border" ng-click="myRegisterFunction()">
+
+  <ion-toolbar color="primary" class="ion-padding">
+
+      <p style="display:flex; justify-content:space-between; align-items:center; padding:0; margin:0">
+        <ion-badge color="warning" slot="start">{{num_Audio + 1}}</ion-badge>
+        <span> audio {{num_Audio + 1}} </span>
+        <ion-badge color="warning" slot="end">{{musicList.length}}</ion-badge>
+      </p>
+
+    <ion-range min="0" color="light" max="{{duration}}"
+        [(ngModel)]="position">
+      <ion-label color="light" slot="start">{{position*1000 | date:'mm:ss'}}</ion-label>
+      <ion-label color="light" slot="end">{{ duration*1000 | date:'mm:ss' }}</ion-label>
+    </ion-range>
+
+    <ion-grid>
+      <ion-row align-items-center id="media-controls">
+        <ion-button (click)="getUrlMusicPrevious()">
+          <ion-icon color="light" name="play-skip-back"> </ion-icon>
+        </ion-button>
+
+        <ion-button *ngIf="!is_play"  (click)="play()">
+          <ion-icon color="light" name="play"></ion-icon>
+        </ion-button>
+
+        <ion-button  *ngIf="is_play" (click)="pause()">
+          <ion-icon color="light" name="pause"></ion-icon>
+        </ion-button>
+
+        <ion-button (click)="getUrlMusicNext()">
+          <ion-icon color="light" name="play-skip-forward"></ion-icon>
+        </ion-button>
+      </ion-row>
+    </ion-grid>
+
+</ion-toolbar>
+
+</ion-footer>
+
+
+

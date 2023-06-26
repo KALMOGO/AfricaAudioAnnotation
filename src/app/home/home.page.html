@@ -1,20 +1,113 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <div id="im-header" style="position:relative;padding: 0;margin: 0;height: 25%; transform: rotate(20deg);" >
+
+    <ion-icon style="font-size:25rem;position:relative; left:-120px; top: -175px;"
+      color="primary" name="ellipse"></ion-icon>
+
+  </div>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <form [formGroup]="formAuthentication"  >
+
+        <ion-list>
+          <ion-item-group style="margin-left:15px; margin-right:15px">
+            <ion-item  style="margin-bottom: 10px;">
+              <ion-label position="floating">Email</ion-label>
+              <ion-input   type="email" formControlName="email"></ion-input>
+            </ion-item>
+
+            <ion-item >
+              <ion-label position="floating">Mot de passe</ion-label>
+              <ion-input  type="password"  formControlName="password"></ion-input>
+
+              <ion-note slot="error">Email ou Mot de passe incorrect </ion-note>
+
+              <ion-note slot="helper" *ngIf="isUserNoconnected">
+                <span style="color:red">Authentification requise</span>
+              </ion-note>
+
+            </ion-item>
+
+          </ion-item-group>
+
+          <p class="title">
+            <ion-button fill="clear" style="font-weight: bold; color:tomato; font-size:10px">Mot de Passe Oublié</ion-button>
+          </p>
+
+          <p id="button-submit">
+            <ion-button type="submit"  style="width: 90%;" color="tertiary" [disabled]="!formAuthentication.valid"
+                shape="round" expand="full" (click)="setOpen(true)">
+              Connexion
+            </ion-button>
+          </p>
+
+          <div >
+            <span >OU</span>
+            <p id="create-account">
+            <ion-button shape="round" style="width: 90%;" expand="block"  color="danger" (click)="OncreateAccount()" >
+              <ion-icon name="person-add-outline"></ion-icon>
+              S'inscrire
+            </ion-button>
+            </p>
+          </div>
+
+        </ion-list>
+      </form>
   </div>
+
+  <ion-modal [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar color="primary">
+          <ion-title>Connexion</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="setOpen(false)">
+              <ion-icon name="close-outline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-content class="ion-padding">
+        <ion-item></ion-item>
+
+        <ion-item>
+          <ion-label >
+            Choisir entre annoter ou télecharger <br>
+            <br>
+            les données
+          </ion-label>
+        </ion-item>
+
+        <ion-list >
+          <ion-list-header>Annotations</ion-list-header>
+          <ion-item>
+            <ion-thumbnail slot="start">
+              <ion-icon style="width: 100%; height: 100%" name="musical-notes"></ion-icon>
+            </ion-thumbnail>
+          </ion-item>
+          <ion-button expand="block" (click)="showLoading()"> Aller </ion-button>
+        </ion-list>
+
+        <ion-item></ion-item>
+
+        <ion-list >
+          <ion-list-header>Télecharger</ion-list-header>
+          <ion-item>
+            <ion-thumbnail slot="start">
+              <ion-icon style="width: 100%; height: 100%" name="download-outline"></ion-icon>
+            </ion-thumbnail>
+          </ion-item>
+          <ion-button color="success" expand="block" (click)="showLoading_download()"> Aller </ion-button>
+        </ion-list>
+
+        <ion-item></ion-item>
+
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 </ion-content>

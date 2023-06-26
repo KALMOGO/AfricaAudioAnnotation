@@ -1,0 +1,27 @@
+#img-header{
+  position:relative;
+  padding: 0;
+  margin: 0;
+  height: 25%;
+}
+
+#img-header img{
+  position: absolute;
+  top:-180px;
+  left: -30%;
+  width: 100%;
+}
+
+ion-input{
+  ---padding:15px;
+  margin-bottom: 10px;
+}
+
+ion-select{
+  margin-bottom:10px !important ;
+}
+
+#send_info> ion-button {
+  height: 35px  !important;
+}
+

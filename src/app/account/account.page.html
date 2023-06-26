@@ -1,0 +1,89 @@
+
+<ion-content [fullscreen]="true">
+  <div id="im-header" style="position:relative;padding: 0;margin: 0;height: 25%; transform: rotate(20deg);" >
+    <ion-icon style="font-size:25rem;position:relative; left:-120px; top: -175px;"
+      color="primary" name="ellipse"></ion-icon>
+  </div>
+
+  <ion-button fill="clear" style="color:#FFF; position:absolute;
+    top:0; z-index:1000" (click)="logout()">
+    <ion-icon size="large" name="arrow-back-outline"></ion-icon>
+  </ion-button>
+
+  <div class="ion-padding">
+    <ion-title> Créer un compte</ion-title>
+
+    <form [formGroup]="UserAccountInfoForm">
+      <ion-list>
+        <ion-item>
+          <ion-label  position="floating">Nom</ion-label>
+          <ion-input autocorrect="on" autofocus="on"  color="primary"
+            inputmode="text" placeholder="Entrer votre Nom" required="true" formControlName="last_name">
+          </ion-input>
+          <ion-icon name="person" color="primary" slot="end"></ion-icon>
+        </ion-item>
+
+        <ion-item>
+          <ion-label  position="floating">Prenom</ion-label>
+          <ion-input autocorrect="on"
+            color="primary" inputmode="text" placeholder="Entrer votre Prenom" formControlName="first_name" required="true">
+          </ion-input>
+          <ion-icon name="person" color="primary" slot="end"></ion-icon>
+        </ion-item>
+
+        <ion-item>
+          <ion-label  position="floating">Email</ion-label>
+          <ion-input autocorrect="on"  placeholder="Entrer votre Email"
+               color="primary" inputmode="text"  required="true" formControlName="email"></ion-input>
+          <ion-icon name="mail" color="primary" slot="end"></ion-icon>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Mot de passe</ion-label>
+          <ion-input autocorrect="on"  placeholder="Entrer un mot de passe"
+             color="primary" inputmode="text"  required="true" formControlName="password"></ion-input>
+          <ion-icon name="key" color="primary" slot="end"></ion-icon>
+        </ion-item>
+
+
+        <ion-item>
+          <ion-label>Langue maternelle</ion-label>
+          <ion-select
+            aria-label="Language"
+            required="true" formControlName="language">
+            <ion-select-option *ngFor="let language of language_list" [value]="language.id">
+              {{ language.language }}
+            </ion-select-option>
+          </ion-select>
+          <ion-icon name="language" color="primary"  slot="end"></ion-icon>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Profil</ion-label>
+          <ion-select
+            autofocus="on"
+            autocorrect="on"
+            required="true" formControlName="job">
+            <ion-select-option color="primary" *ngFor="let profil of profil_list" [value]="profil">
+              {{ profil }}
+            </ion-select-option>
+          </ion-select>
+          <ion-icon name="information" color="primary"  slot="end"></ion-icon>
+
+        </ion-item>
+
+
+      </ion-list>
+
+      <div style="margin-top: 20px; text-transform:lowercase" id="send_info">
+        <ion-button  color="tertiary" shape="round"  expand="full" (click)="createUserAccount()"
+          [disabled]="!UserAccountInfoForm.valid">
+        <span style="text-transform:capitalize; font-size:18px;">
+          Créer
+        </span>
+        </ion-button>
+      </div>
+    </form>
+
+  </div>
+</ion-content>

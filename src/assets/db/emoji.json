@@ -1,0 +1,187 @@
+
+{
+
+  "emojis": [
+    {
+      "id":20,
+      "emoji": "🤣",
+      "skin_tone_support": false,
+      "name": "laughing",
+      "slug": "rolling_on_the_floor_laughing",
+      "unicode_version": "3.0",
+      "emoji_version": "3.0"
+    },
+
+    {
+      "id":19,
+      "emoji": "🥰",
+      "skin_tone_support": false,
+      "name": "love",
+      "slug": "smiling_face_with_hearts",
+      "unicode_version": "11.0",
+      "emoji_version": "11.0"
+    },
+    {
+      "id":18,
+      "emoji": "😔",
+      "skin_tone_support": false,
+      "name": "pensive",
+      "slug": "pensive_face",
+      "unicode_version": "0.6",
+      "emoji_version": "0.6"
+    },
+    {
+      "id":17,
+      "emoji": "😕",
+      "skin_tone_support": false,
+      "name": "confused",
+      "slug": "confused_face",
+      "unicode_version": "1.0",
+      "emoji_version": "1.0"
+    },
+    {
+      "id":16,
+      "emoji": "😯",
+      "skin_tone_support": false,
+      "name": "taire",
+      "slug": "hushed_face",
+      "unicode_version": "1.0",
+      "emoji_version": "1.0"
+    },
+    {
+      "id":15,
+      "emoji": "😲",
+      "skin_tone_support": false,
+      "name": "astonished",
+      "slug": "astonished_face",
+      "unicode_version": "0.6",
+      "emoji_version": "0.6"
+    },
+    {
+      "id":14,
+      "emoji": "🥺",
+      "skin_tone_support": false,
+      "name": "pleading",
+      "slug": "pleading_face",
+      "unicode_version": "11.0",
+      "emoji_version": "11.0"
+    },
+    {
+      "id":13,
+      "emoji": "😧",
+      "skin_tone_support": false,
+      "name": "anguished",
+      "slug": "anguished_face",
+      "unicode_version": "1.0",
+      "emoji_version": "1.0"
+    },
+    {
+      "id":12,
+      "emoji": "😨",
+      "skin_tone_support": false,
+      "name": "fearful",
+      "slug": "fearful_face",
+      "unicode_version": "0.6",
+      "emoji_version": "0.6"
+    },
+    {
+      "id":11,
+      "emoji": "😰",
+      "skin_tone_support": false,
+      "name": "anxious",
+      "slug": "anxious_face_with_sweat",
+      "unicode_version": "0.6",
+      "emoji_version": "0.6"
+    },
+    {
+      "id":10,
+      "emoji": "😭",
+      "skin_tone_support": false,
+      "name": "crying",
+      "slug": "loudly_crying_face",
+      "unicode_version": "0.6",
+      "emoji_version": "0.6"
+    },
+    {
+      "id":9,
+      "emoji": "😱",
+      "skin_tone_support": false,
+      "name": "fear",
+      "slug": "face_screaming_in_fear",
+      "unicode_version": "0.6",
+      "emoji_version": "0.6"
+    },
+    {
+      "id":8,
+      "emoji": "😖",
+      "skin_tone_support": false,
+      "name": "confounded",
+      "slug": "confounded_face",
+      "unicode_version": "0.6",
+      "emoji_version": "0.6"
+    },
+    {
+      "id":7,
+      "emoji": "😣",
+      "skin_tone_support": false,
+      "name": "persevering",
+      "slug": "persevering_face",
+      "unicode_version": "0.6",
+      "emoji_version": "0.6"
+    },
+    {
+      "id":6,
+      "emoji": "😞",
+      "skin_tone_support": false,
+      "name": "disappointed",
+      "slug": "disappointed_face",
+      "unicode_version": "0.6",
+      "emoji_version": "0.6"
+    },
+    {
+      "id":5,
+      "emoji": "😩",
+      "skin_tone_support": false,
+      "name": "weary",
+      "slug": "weary_face",
+      "unicode_version": "0.6",
+      "emoji_version": "0.6"
+    },
+    {
+      "id":4,
+      "emoji": "😫",
+      "skin_tone_support": false,
+      "name": "tired",
+      "slug": "tired_face",
+      "unicode_version": "0.6",
+      "emoji_version": "0.6"
+    },
+    {
+      "id":3,
+      "emoji": "🥱",
+      "skin_tone_support": false,
+      "name": "yawning",
+      "slug": "yawning_face",
+      "unicode_version": "12.0",
+      "emoji_version": "12.0"
+    },
+    {
+      "id":2,
+      "emoji": "😤",
+      "skin_tone_support": false,
+      "name": "desolation",
+      "slug": "face_with_steam_from_nose",
+      "unicode_version": "0.6",
+      "emoji_version": "0.6"
+    },
+    {
+      "id":1,
+      "emoji": "😡",
+      "skin_tone_support": false,
+      "name": "enraged",
+      "slug": "enraged_face",
+      "unicode_version": "0.6",
+      "emoji_version": "0.6"
+    }
+  ]
+}

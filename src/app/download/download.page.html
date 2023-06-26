@@ -1,0 +1,48 @@
+<ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-button slot="start" fill="clear" style="color:#FFF; position:absolute;
+        top:0; z-index:1000" (click)="logout()">
+        <ion-icon size="large" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+      <ion-title slot="end">Télecharger</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="ion-padding">
+
+    <ion-list >
+      <ion-item> <ion-label> Audios </ion-label> </ion-item>
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <ion-icon style="width: 100%; height: 100%" name="download-outline"></ion-icon>
+        </ion-thumbnail>
+        <ion-label> Annotations des audios </ion-label>
+      </ion-item>
+
+      <ion-button color="success" expand="block" (click)="download_resultat_final()" >
+        Télecharger  <span style="text-transform: lowercase !important;">(csv)</span>
+      </ion-button>
+    </ion-list>
+
+    <ion-list >
+      <ion-item> <ion-label> Videos </ion-label> </ion-item>
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <ion-icon style="width: 100%; height: 100%" name="download-outline"></ion-icon>
+        </ion-thumbnail>
+        <ion-label> Annotations des videos </ion-label>
+      </ion-item>
+
+      <ion-button color="success" expand="block" (click)="download_resultat_final_video()" >
+        Télecharger  <span style="text-transform: lowercase !important;">(csv)</span>
+      </ion-button>
+    </ion-list>
+    <ion-item> </ion-item>
+
+  </ion-content>
+</ion-content>
