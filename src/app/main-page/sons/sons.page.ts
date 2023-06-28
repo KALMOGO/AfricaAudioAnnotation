@@ -6,6 +6,7 @@ import { HomePage } from '../../home/home.page';
 import { Router } from '@angular/router';
 import { IAudioList, IAnnotation } from './sons.page.interface';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Geolocation, GeolocationOptions, GeolocationPosition } from '@capacitor/geolocation';
 
 @Component({
   selector: 'app-sons',
@@ -38,6 +39,7 @@ export class SonsPage implements OnInit {
     private cdr:ChangeDetectorRef
   ) {
     this.getListAudioAnnotateByUser();
+
   }
 
   seekbar = new FormControl();
@@ -49,6 +51,7 @@ export class SonsPage implements OnInit {
     this.tokens = localStorage.getItem("tokens");
     this.getListAudioAnnotateByUser()
     this.getUserID();
+    this.getPositionIfEnabled();
   }
 
   num_Audio:number =  0;
@@ -278,6 +281,39 @@ export class SonsPage implements OnInit {
     }, 1000);
   }
 
+  // activer la geolocalisation
+  async getPositionIfEnabled(): Promise<GeolocationPosition | null> {
+    try {
+      const geolocationEnabled = await this.checkGeolocationEnabled();
+
+      if (geolocationEnabled) {
+        const options: GeolocationOptions = {
+          enableHighAccuracy: true,
+          timeout: 5000,
+        };
+
+        const position = await Geolocation.getCurrentPosition(options);
+        console.log('Current position:', position);
+        return position;
+      } else {
+        console.warn('Geolocation is disabled');
+        return null;
+      }
+    } catch (error) {
+      console.error('Error retrieving location', error);
+      return null;
+    }
+  }
+
+  async checkGeolocationEnabled(): Promise<boolean> {
+    try {
+      const response = await Geolocation.checkPermissions();
+      return response.location === 'granted';
+    } catch (error) {
+      console.error('Error checking geolocation permissions', error);
+      return false;
+    }
+  }
 
 }
 
